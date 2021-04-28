@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-firebase-crashlytics" version="1.2.0">
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-firebase-crashlytics" version="1.2.1">
   <name>Cordova Firebase Crashlytics Plugin</name>
   <description>Google Firebase Crashlytics</description>
   <license>MIT</license>
@@ -12,10 +12,6 @@
       <engine name="cordova-plugman" version=">=4.2.0" />
       <engine name="cordova-ios" version=">=5.0.0" />
   </engines>
-
-  <hook type="after_plugin_install" src="scripts/after_plugin_add.js" />
-  <hook type="after_platform_add" src="scripts/after_plugin_add.js" />
-  <hook type="before_plugin_uninstall" src="scripts/before_plugin_rm.js" />
 
   <platform name="browser">
     <js-module src="www/browser/crashlytics.js" name="FirebaseCrashlytics">
@@ -35,9 +31,7 @@
       </feature>
     </config-file>
 
-    <preference name="ANDROID_FIREBASE_ANALYTICS_VERSION" default="17.4.3"/>
     <preference name="ANDROID_FIREBASE_CRASHLYTICS_VERSION" default="17.1.0"/>
-    <framework src="com.google.firebase:firebase-analytics:$ANDROID_FIREBASE_ANALYTICS_VERSION"/>
     <framework src="com.google.firebase:firebase-crashlytics:$ANDROID_FIREBASE_CRASHLYTICS_VERSION"/>
     <framework src="firebase-crashlytics.gradle" custom="true" type="gradleReference"/>
 
@@ -73,8 +67,7 @@
         <source url="https://github.com/CocoaPods/Specs.git"/>
       </config>
       <pods use-frameworks="true">
-        <pod name="FirebaseCrashlytics"  />
-        <pod name="FirebaseAnalytics" />
+        <pod name="Firebase/Crashlytics"/>
       </pods>
     </podspec>
 
